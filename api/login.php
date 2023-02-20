@@ -1,5 +1,8 @@
 <?php
-
+header("Access-Control-Allow-Origin:*");
+header("Content-Type:application/json");
+header("Access-Control-Allow-Methods:POSTS");
+header("Access-Control-Allow-Headers:Access-Control-Allow-Origin,Content-Type,Access-Control-Allow-Methods,Access-Control-Allow-Headers,Authorization");
 /*$newuser= new User();
 $validation= new Validation();
 

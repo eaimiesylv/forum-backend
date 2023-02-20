@@ -23,12 +23,17 @@ class Crud{
         $tbl_value=array();
         foreach($key as $val){
             $tbl_parameter.="?,";
-            array_push($tbl_value,$col_val[$val]);
+            $realval=$col_val[$val];
+            if($val == 'password'){
+                $realval=password_hash($realval,PASSWORD_DEFAULT);
+            }
+            array_push($tbl_value,$realval);
           
         }
         $tbl_parameter_binding=rtrim($tbl_parameter,",");
         $query="insert into $table($columns) values($tbl_parameter_binding)";
         $this->prepare_execute($query,$tbl_value);
+        echo json_encode('insertion successful');
        
         
     }
@@ -79,7 +84,7 @@ class Crud{
         $sql=$this->pdo->prepare($q);
         $sql->execute($value);
         return $sql;
-
+ 
     }
    
 }

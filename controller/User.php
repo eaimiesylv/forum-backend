@@ -1,6 +1,6 @@
 <?php
-require_once ('Crud.php');
-require_once ('validation.php');
+require_once ('../model/Crud.php');
+require_once ('../model/validation.php');
 
 
 class User extends Crud{
